@@ -21,7 +21,7 @@ export default function Home({ allPostsData }) {
           University with industry experience building both web and mobile
           applications and web services. I specialize in JavaScript and have
           professional experience working with Angular, Ionic and Node.js. I
-          also have experience working with TypeScript, Java, C#, C, Python,
+          also have experience working with JavaScript, TypeScript, Java, C#, C, Python,
           MongoDB, PHP and MySQL. Currently, I'm a master student at Dokuz Eylül
           University Computer Engineering Department.
         </p>
