@@ -1,15 +1,20 @@
-import Head from "next/head";
-import Link from "next/link";
-import Layout, { siteTitle } from "../components/layout";
-import Date from "../components/date";
-import utilStyles from "../styles/utils.module.css";
-import { getSortedPostsData } from "../lib/posts";
+import Head from 'next/head'
+import Layout, { siteTitle } from '../components/layout'
+import utilStyles from '../styles/utils.module.css'
+import { getSortedPostsData } from '../lib/posts'
+import Link from 'next/link'
+import Date from '../components/date'
+import { GetStaticProps } from 'next'
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
-  return { props: { allPostsData } };
-}
-export default function Home({ allPostsData }) {
+export default function Home({
+  allPostsData
+}: {
+  allPostsData: {
+    date: string
+    title: string
+    id: string
+  }[]
+}) {
   return (
     <Layout home>
       <Head>
@@ -21,9 +26,12 @@ export default function Home({ allPostsData }) {
           University with industry experience building both web and mobile
           applications and web services. I specialize in JavaScript and have
           professional experience working with Angular, Ionic and Node.js. I
-          also have experience working with JavaScript, TypeScript, Java, C#, C, Python,
+          also have experience working with TypeScript, Java, C#, C, Python,
           MongoDB, PHP and MySQL. Currently, I'm a master student at Dokuz Eylül
-          University Computer Engineering Department.
+          University Computer Engineering Department.</p>
+        <p>
+          (This is a sample website - you’ll be building a site like this in{' '}
+          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
@@ -43,5 +51,14 @@ export default function Home({ allPostsData }) {
         </ul>
       </section>
     </Layout>
-  );
+  )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const allPostsData = getSortedPostsData()
+  return {
+    props: {
+      allPostsData
+    }
+  }
 }
